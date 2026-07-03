@@ -1,0 +1,153 @@
+:root {
+    --cor-primaria: #000000;
+    --cor-card: #333333; /* Cor dos cards que vimos no seu wireframe */
+    --fonte-primaria: "Krona One", sans-serif;
+    --fonte-secundaria: "Krub", sans-serif;
+}
+
+.formacoes-section {
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+/* O CONTAINER PAI: Apenas dá o distanciamento vertical entre as linhas */
+.lista-formacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Deixamos 0 porque vamos usar bordas como divisórias */
+    width: 100%;
+    margin-top: 40px; /* Afasta o cabeçalho do texto de introdução */
+    padding: 20px 40px;
+}
+
+p.introducao-formacoes {
+    width: 430px;
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    text-align: left; 
+    font-family: var(--fonte-secundaria);
+}
+
+/* A REGRA DE OURO: O cabeçalho e os itens compartilham o MESMO Grid */
+.formacoes-header, 
+.item-formacao {
+    display: grid;
+    /* 1ª col: 150px (imagem) | 2ª col: flexível (texto) | 3ª col: tamanho do conteúdo (data) */
+    grid-template-columns: 150px 120px 1fr; 
+    gap: 40px; /* Espaço horizontal fixo ENTRE as colunas */
+    align-items: center; /* Centraliza tudo verticalmente na linha */
+    padding: 25px 40px; /* Dá o respiro vertical para cada linha */
+}
+
+/* ==========================================================================
+   REFIDANDO O CABEÇALHO (.formacoes-header)
+   ========================================================================== */
+.formacoes-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Linha divisória mais grossa */
+}
+
+.formacoes-header span {
+    font-family: var(--fonte-primaria);
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+/* ==========================================================================
+   REFINANDO O ITEM (.item-formacao)
+   ========================================================================== */
+.item-formacao {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Linha fina branca do seu Figma */
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de UX: Uma sutil iluminação na linha quando o recrutador passa o mouse */
+.item-formacao:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.formacao-thumbnail{
+    width: 100%;
+    height: 90px; /* Altura controlada para o retângulo do certificado */
+    background-color: #a7a7a7; /* Seu cinza do Figma */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.formacao-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a logo da faculdade/instituição não distorça */
+}
+
+.conteudo-formacao h3 {
+    font-family: var(--fonte-primaria);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.conteudo-formacao p {
+    font-family: var(--fonte-secundaria);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+.data-formacao span {
+    font-family: var(--fonte-primaria);
+    font-size: 1rem;
+    white-space: wrap; /* Impede que a data quebre em duas linhas (ex: 06/ e embaixo 2026) */
+}
+
+@media (max-width: 768px) {
+
+    .formacoes-section {
+        padding: 60px 0;
+        align-items: center;
+    }
+
+    p.introducao-formacoes {
+        width: 99%;
+        text-align: justify;
+        width: 350px;
+        font-size: 1.45em;
+    }
+
+    .lista-formacoes {
+        padding: 20px 0;
+    }
+
+    .formacoes-header {
+        display: none;
+    }
+
+    .item-formacao {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .formacao-thumbnail{
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .conteudo-formacao h3 {
+        width: 100%;
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .data-formacao span {
+        font-size: 1em;
+        text-align: center;
+        opacity: 0.7;
+    }
+
+    .conteudo-formacao p {
+        text-align: justify;
+        padding-top: 20px;
+        font-size: 1.2em;
+    }
+}

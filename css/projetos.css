@@ -1,0 +1,174 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS & RESET
+   ========================================================================== */
+:root {
+    --cor-primaria: #000000;
+    --cor-card: #333333; 
+    --fonte-primaria: "Krona One", sans-serif;
+    --fonte-secundaria: "Krub", sans-serif;
+}
+
+/* ==========================================================================
+   5. SESSÃO PROJETOS
+   ========================================================================== */
+.projetos-section {
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.titulo-sessao {
+    font-family: var(--fonte-primaria);
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+}
+
+.card-projeto {
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 40px;
+    gap: 20px;
+}
+
+/* 🧠 1. A ÂNCORA DO BANNER: Guarda o espaço visual e serve de referência */
+.card-header-banner {
+    width: 100%;
+    height: 240px;
+    background-color: #4a4a4a; 
+    border-radius: 15px;
+    position: relative; /* CRUCIAL: Cria o ponto de referência para o filho absoluto */
+    overflow: hidden; /* Garante que a imagem ou efeitos não vazem o raio da borda */
+}
+
+/* Garante o enquadramento da tag de imagem caso use */
+.card-header-banner img {
+    width: 200%;
+    height: 150%;
+    object-fit: fill;
+}
+
+/* 🔥 2. O FILHO ABSOLUTO: Flutua cravado na base interna do banner */
+.card-titulos-overlay {
+    position: absolute;
+    bottom: 0;   /* Cola no fundo do banner */
+    left: 0;     /* Alinha no início da esquerda */
+    width: 100%; /* Espalha pela largura toda */
+    padding: 40px 20px 20px; /* Cria um respiro interno para os textos não baterem nas bordas */
+    
+    /* Opcional de UX: Adiciona um degradê escuro sutil atrás do texto para garantir 
+       que o texto branco seja legível mesmo se a foto for clara */
+    background: linear-gradient(transparent, rgb(0, 0, 0)); 
+}
+
+/* Os títulos apenas herdam os alinhamentos sem precisar forçar margens estranhas */
+.card-titulos-overlay h3 { 
+    font-family: var(--fonte-primaria); 
+    font-size: 1.1em; 
+    margin-bottom: 5px; 
+    color: aliceblue;
+    text-align: left;
+}
+
+.card-titulos-overlay h4 { 
+    font-size: 0.9em; 
+    font-weight: 500;
+    opacity: 0.6; 
+    font-family: var(--fonte-secundaria); 
+    color: aliceblue;
+    text-align: left;
+}
+
+/* 📦 3. O CORPO: Cuida apenas das tags e descrição, sem margens negativas! */
+.card-corpo {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-tags { 
+    display: block;
+    gap: 10px;
+}
+
+.card-tags span { 
+    background-color: rgba(150, 150, 150, 0.935); 
+    padding: 5px 10px; 
+    border-radius: 3px; 
+    font-size: 0.7rem; 
+    font-family: var(--fonte-primaria);
+    border-style: none;
+    opacity: 0.5; 
+}
+
+.descricao-projeto { 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    text-align: left; 
+    font-family: var(--fonte-secundaria);
+}
+
+/* ==========================================================================
+   MOBILE (Ajustes Rápidos e Limpos)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .projetos-section {
+        padding: 40px 0;
+        gap: 30px;
+    }
+
+    .grid-projetos {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+
+    .card-projeto {
+        padding: 20px 10px;
+    }
+
+    /* Reduz o banner no mobile proporcionalmente */
+    .card-header-banner {
+        height: 200px;
+    }
+
+    .titulo-sessao {
+        text-align: center;
+        font-size: 2.2em;
+        line-height: 1.5em;
+    }
+
+    .card-titulos-overlay {
+        margin-top: -40px;
+    }
+
+    /* 💡 No mobile, sem margem negativa! Apenas controlamos os tamanhos de fonte */
+    .card-titulos-overlay h3 {
+        font-size: 1.3em;
+    }
+
+    .card-titulos-overlay h4 { 
+        font-size: 1.2em; 
+    }
+
+    .card-tags {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .card-tags span {
+        font-size: 0.9em;
+    }
+
+    .descricao-projeto {
+        font-size: 1.3em;
+    }
+}
