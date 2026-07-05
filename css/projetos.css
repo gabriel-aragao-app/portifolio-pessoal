@@ -96,15 +96,16 @@
 }
 
 .card-tags { 
-    display: block;
+    display: inline-flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .card-tags span { 
-    background-color: rgba(150, 150, 150, 0.935); 
+    background-color: rgba(86, 86, 86, 0.885); 
     padding: 5px 10px; 
     border-radius: 3px; 
-    font-size: 0.7rem; 
+    font-size: 0.6rem; 
     font-family: var(--fonte-primaria);
     border-style: none;
     opacity: 0.5; 
